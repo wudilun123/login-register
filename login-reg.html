@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./login-reg.css">
+    <script defer src='login-reg.js'></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="shell">
+        <div class="top">
+            <span class="signstatus highlight">SIGN IN</span>
+            <div id="switch">
+                <div id="ball"></div>
+            </div>
+            <span class="signstatus">SIGN UP</span>
+        </div>
+        <div class="bottom">
+            <div class="signin">
+                <h2>登录</h2>
+                <div>
+                    <input type="text" name="username" placeholder=用户名: required maxlength="11"
+                        data-tip="用户名由英文字母、数字以及下划线组成，最大长度为11">
+                    <span class="clear">[×]</span>
+                </div>
+                <div>
+                    <input type="text" name="password" placeholder="密码:" required minlength="6" data-tip="密码最小长度为6">
+                    <span class="clear">[×]</span>
+                </div>
+                <button id="signin_button">立即登录</button>
+            </div>
+            <div class="signup">
+                <h2>注册</h2>
+                <div>
+                    <input type="text" name="username" placeholder="用户名:" required maxlength="11">
+                    <span class="clear">[×]</span>
+                </div>
+                <div>
+                    <input type="password" name="password_1" placeholder="请输入密码:" required minlength="6">
+                    <span class="clear">[×]</span>
+                </div>
+                <div>
+                    <input type="password" name="password_2" placeholder="请再次输入密码:" required minlength="6">
+                    <span class="clear">[×]</span>
+                </div>
+                <div>
+                    <input type="email" name="email" placeholder="请输入邮箱" required>
+                    <span class="clear">[×]</span>
+                </div>
+                <div>
+                    <input type="phone" class="phone" name="phone" placeholder="请输手机号" required>
+                    <span class="clear">[×]</span>
+                </div>
+                <div>
+                    <input type="sms_num" class="sms_num" name="sms_num" placeholder="请输入验证码" required>
+                    <span class="clear">[×]</span>
+                </div>
+                <div>
+                    <button id="sms_button">免费获取验证码</button>
+                    <span style="visibility: hidden;">[×]</span>
+                </div>
+                <button id="signup_button">立即注册</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
