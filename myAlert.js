@@ -1,20 +1,24 @@
 export class MyAlert {
     showAlert(text, callback = null) {
-        //text是输出到屏幕上的文本,callback是可选的回调函数用于执行点击确定后的工作
+        //text是输出到屏幕上的文本,限制字符数量为100,callback是可选的回调函数用于执行点击确定后的工作
         this.alertContainer = document.createElement('div');
         this.alertMessage = document.createElement('div');
+        this.closeButtonContainer = document.createElement('div');
         this.closeButton = document.createElement('span');
         this.textContainer = document.createElement('div');
         this.alertText = document.createElement('div');
+        this.confirmButtonContainer = document.createElement('div');
         this.confirmButton = document.createElement('button');
 
         document.body.append(this.alertContainer);
         this.alertContainer.append(this.alertMessage);
-        this.alertMessage.append(this.closeButton);
+        this.alertMessage.append(this.closeButtonContainer);
         this.alertMessage.append(this.textContainer);
-        this.alertMessage.append(this.confirmButton);
+        this.alertMessage.append(this.confirmButtonContainer);
+        this.closeButtonContainer.append(this.closeButton)
         this.textContainer.append(this.alertText);
-        this.alertText.textContent = text;
+        this.confirmButtonContainer.append(this.confirmButton);
+        this.alertText.textContent = text.slice(0, 100);
         this.closeButton.textContent = '×';
         this.confirmButton.textContent = '确认';
 
@@ -35,13 +39,15 @@ export class MyAlert {
         border: 1px solid rgba(0,0,0,0.2);
         border-radius: 10px;    
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 100px;
-        margin: auto;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
         background-color: white;
         box-shadow: 5px 5px 10px rgba(0,0,0,0.7);
+        `;
+        this.closeButtonContainer.style.cssText = `
+        width: 100%;
+        height: 16%;
         `;
         this.closeButton.style.cssText = `
         position: absolute;
@@ -53,18 +59,24 @@ export class MyAlert {
         this.textContainer.style.cssText = `
         display: flex;
         width: 100%;
-        height: 80%;
+        height: 65%;
         justify-content: center;
         align-items: center;
+        overflow: hidden;
         `;
         this.alertText.style.cssText = `
-        width: 350px;
+        width: 100%;
         font-size: 18px;
-        overflow: hidden;
-        word-break:break-all; 
         cursor: default;
         text-align: center;
-        white-space: pre;
+        word-wrap: break-word;
+        `;
+        this.confirmButtonContainer.style.cssText = `
+        width: 100%;
+        height: 19%;
+        display: flex;
+        justify-self:center;
+        align-items: flex-start;
         `;
         this.confirmButton.style.cssText = `
         width: 70px;
